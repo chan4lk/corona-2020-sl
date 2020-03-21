@@ -7,7 +7,7 @@
     "ng": "ng",
     "start": "ionic serve",
     "build": "ionic build --prod",
-    "predeploy": "build",
+    "predeploy": "npm run build",
     "deploy": "firebase deploy",
     "test": "ng test",
     "lint": "ng lint",
