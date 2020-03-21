@@ -12,5 +12,10 @@
       <ion-title size="large">{{'TAB1.HEADER' | translate }}</ion-title>
     </ion-toolbar>
   </ion-header>
-  <app-country-info [info]="info$ | async"></app-country-info>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+  <ng-container *ngIf="info$ | async as country">
+    <app-country-info [info]="country"></app-country-info>
+  </ng-container>
 </ion-content>

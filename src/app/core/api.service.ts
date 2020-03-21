@@ -13,4 +13,8 @@ export class APIService {
       `https://corona.lmao.ninja/countries/${country}`
     );
   }
+
+  getAllCountries(){
+    return this.http.get<CountryResponse[]>('https://corona.lmao.ninja/countries');
+  }
 }

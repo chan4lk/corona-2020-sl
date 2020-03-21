@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      {{'TAB2.HEADER' | translate }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,14 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">{{'TAB2.HEADER' | translate }}</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+  <ng-container *ngFor="let country of countries$ | async">
+    <app-country-info [info]="country"></app-country-info>
+  </ng-container>
+  
 </ion-content>

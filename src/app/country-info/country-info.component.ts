@@ -9,7 +9,17 @@ import { CountryResponse } from '../core/model/country-info.response';
 })
 export class CountryInfoComponent implements OnInit {
 
-  @Input() info: CountryResponse = null;
+  @Input() info: CountryResponse = {
+    active: 0,
+    cases: 0,
+    casesPerOneMillion: 0,
+    country: '',
+    critical: 0,
+    deaths: 0,
+    recovered: 0,
+    todayCases: 0,
+    todayDeaths: 0
+  };
   constructor() { }
 
   ngOnInit() {}

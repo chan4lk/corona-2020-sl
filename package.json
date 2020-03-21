@@ -5,7 +5,7 @@
   "homepage": "https://corona-2020-sl.firebaseapp.com",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ionic serve",
     "build": "ionic build --prod",
     "predeploy": "build",
     "deploy": "firebase deploy",
