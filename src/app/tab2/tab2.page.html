@@ -12,7 +12,7 @@
       <ion-title size="large">{{'TAB2.HEADER' | translate }}</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+  <ion-refresher disabled="false" slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content> </ion-refresher-content>
   </ion-refresher>
   <ng-container *ngFor="let country of countries$ | async">
