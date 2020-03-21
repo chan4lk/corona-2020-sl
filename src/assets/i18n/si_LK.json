@@ -1,5 +1,17 @@
 {
     "TAB1": {
         "HEADER": "ශ්‍රී ලංකාව"
+    },
+    "COUNTRY":{
+        "Sri Lanka": "ශ්‍රී ලංකාව",
+        "SUBTITLE": "රට",
+        "CASES": "මුළු ආසාදිතයින්",
+        "DEATHS":"මරණ",
+        "TODAY_CASES": "අද වාර්තා වුවන්",
+        "TODAY_DEATHS":"අද මරණ",
+        "CRITICAL":"අසාධ්‍ය පුද්ගලයින්",
+        "RECOVERED":"සුව වුවන්",
+        "ACTIVE":"දැනට ආසාදිතයින්",
+        "CASES_PER_MILLION": "මිලියනකට ආසාදිතයින්"
     }
 }

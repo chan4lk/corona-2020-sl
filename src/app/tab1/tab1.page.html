@@ -12,6 +12,5 @@
       <ion-title size="large">{{'TAB1.HEADER' | translate }}</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <app-country-info [info]="info$ | async"></app-country-info>
 </ion-content>

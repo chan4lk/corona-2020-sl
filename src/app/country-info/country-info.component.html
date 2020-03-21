@@ -1,0 +1,44 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>{{ 'COUNTRY.SUBTITLE' | translate }}</ion-card-subtitle>
+    <ion-card-title>{{'COUNTRY.' + info?.country | translate}}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-list>
+      <ion-item>
+        <ion-label>{{'COUNTRY.CASES' | translate}}</ion-label>
+        <ion-note slot="end" color="primary">{{info.cases}}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'COUNTRY.DEATHS' | translate}}</ion-label>
+        <ion-note slot="end" color="primary">{{info.deaths}}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'COUNTRY.TODAY_CASES' | translate}}</ion-label>
+        <ion-note slot="end" color="primary">{{info.todayCases}}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'COUNTRY.TODAY_DEATHS' | translate}}</ion-label>
+        <ion-note slot="end" color="primary">{{info.todayDeaths}}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'COUNTRY.CRITICAL' | translate}}</ion-label>
+        <ion-note slot="end" color="primary">{{info.critical}}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'COUNTRY.RECOVERED' | translate}}</ion-label>
+        <ion-note slot="end" color="primary">{{info.recovered}}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'COUNTRY.ACTIVE' | translate}}</ion-label>
+        <ion-note slot="end" color="primary">{{info.active}}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'COUNTRY.CASES_PER_MILLION' | translate}}</ion-label>
+        <ion-note slot="end" color="primary">{{info.casesPerOneMillion}}</ion-note>
+      </ion-item>
+    </ion-list>
+    
+  </ion-card-content>
+</ion-card>

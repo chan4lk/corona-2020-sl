@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 import { SharedModule } from '../shared/shared.module';
+import { CountryInfoComponent } from '../country-info/country-info.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { SharedModule } from '../shared/shared.module';
     RouterModule.forChild([{ path: '', component: Tab1Page }]),
     SharedModule
   ],
-  declarations: [Tab1Page]
+  declarations: [Tab1Page, CountryInfoComponent]
 })
 export class Tab1PageModule {}
