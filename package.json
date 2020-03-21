@@ -1,12 +1,13 @@
 {
   "name": "corona-2020",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Chandima Ranaweera",
+  "homepage": "https://corona-2020-sl.firebaseapp.com",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ionic build --prod",
+    "predeploy": "build",
     "deploy": "firebase deploy",
     "test": "ng test",
     "lint": "ng lint",
