@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      {{'TAB1.HEADER' | translate }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,42 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
+      <ion-title size="large">{{'TAB1.HEADER' | translate }}</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+  <ng-container *ngIf="info$ | async as info">
+  <ion-list>
+    <ion-item>
+      <ion-label>{{'COUNTRY.CASES' | translate}}</ion-label>
+      <ion-note slot="end" color="primary">{{info.cases}}</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{'COUNTRY.DEATHS' | translate}}</ion-label>
+      <ion-note slot="end" color="primary">{{info.deaths}}</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{'COUNTRY.TODAY_CASES' | translate}}</ion-label>
+      <ion-note slot="end" color="primary">{{info.todayCases}}</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{'COUNTRY.TODAY_DEATHS' | translate}}</ion-label>
+      <ion-note slot="end" color="primary">{{info.todayDeaths}}</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{'COUNTRY.CRITICAL' | translate}}</ion-label>
+      <ion-note slot="end" color="primary">{{info.critical}}</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{'COUNTRY.RECOVERED' | translate}}</ion-label>
+      <ion-note slot="end" color="primary">{{info.recovered}}</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{'COUNTRY.ACTIVE' | translate}}</ion-label>
+      <ion-note slot="end" color="primary">{{info.active}}</ion-note>
+    </ion-item>
+  </ion-list>
+</ng-container>
 </ion-content>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CountryResponse } from './model/country-info.response';
+import { SummaryResponse } from './model/summary.response';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,9 @@ export class APIService {
 
   getAllCountries(){
     return this.http.get<CountryResponse[]>('https://corona.lmao.ninja/countries');
+  }
+
+  getSummary(){
+    return this.http.get<SummaryResponse>('https://corona.lmao.ninja/all');
   }
 }
