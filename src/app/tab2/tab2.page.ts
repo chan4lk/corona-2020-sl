@@ -12,14 +12,19 @@ import { finalize } from 'rxjs/operators';
 export class Tab2Page implements OnInit {
 
   countries$: Observable<CountryResponse[]> = of([]);
+  loading = true;
   constructor(private api: APIService) {}
 
   ngOnInit(): void {
-    this.countries$ = this.api.getAllCountries();
+    this.doRefresh();
   }
 
-  doRefresh(event: any){
-    this.countries$ = this.api.getAllCountries().pipe(finalize(() => event.target.complete()));
+  doRefresh(event?: any){
+    this.loading = true;
+    this.countries$ = this.api.getAllCountries().pipe(finalize(() => {
+      this.loading = false;
+      event && event.target.complete();
+    }));
   }
 
 }
