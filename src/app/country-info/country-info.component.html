@@ -1,9 +1,8 @@
 <ion-card>
   <ion-card-header>
-    <ion-card-subtitle>{{ 'COUNTRY.SUBTITLE' | translate }}</ion-card-subtitle>
     <ion-item>
       <ion-card-title>{{ info?.country | translate }}</ion-card-title>
-      <img slot="end" [src]="info.countryInfo.flag" />
+      <img class="flag" slot="end" [src]="info.countryInfo.flag" />
     </ion-item>
   </ion-card-header>
 
