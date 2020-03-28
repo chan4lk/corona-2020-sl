@@ -26,7 +26,13 @@ jobs:
       - run: npx npm-force-resolutions
       - run: npm ci
       - run: npm i -D ionic
-      - run: npm run deploy
       - run: npm run github
+      - run: npm run predeploy
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         env:
           CI: true
