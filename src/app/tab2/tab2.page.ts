@@ -1,30 +1,58 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CountryResponse } from '../core/model/country-info.response';
 import { APIService } from '../core/api.service';
-import { Observable, of } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page implements OnInit {
-
-  countries$: Observable<CountryResponse[]> = of([]);
+export class Tab2Page implements OnInit, OnDestroy {
+  countries: CountryResponse[] = [];
+  visibleCountries: CountryResponse[] = [];
   loading = true;
+  count = 0;
+  sub: Subscription;
   constructor(private api: APIService) {}
 
   ngOnInit(): void {
     this.doRefresh();
   }
 
-  doRefresh(event?: any){
-    this.loading = true;
-    this.countries$ = this.api.getAllCountries().pipe(finalize(() => {
-      this.loading = false;
-      event && event.target.complete();
-    }));
+  ngOnDestroy() {
+    this.sub && this.sub.unsubscribe();
   }
 
+  doRefresh(event?: any) {
+    this.loading = true;
+    this.count = 0;
+    this.sub = this.api.getAllCountries().subscribe(countries => {
+      if (this.sub) {
+        this.sub.unsubscribe();
+      }
+      this.loading = false;
+      this.countries = countries;
+      if (event) {
+        event.target.complete();
+      }
+      this.visibleCountries = [];
+      this.append(null);
+    });
+  }
+
+  append(event: any) {
+    const toAppend = this.countries.slice(
+      this.count * 10,
+      (this.count + 1) * 10
+    );
+    if (event) {
+      event.target.complete();
+    }
+    this.count++;
+    this.visibleCountries.push(...toAppend);
+    if (this.countries.length === this.visibleCountries.length && event) {
+      event.target.disable = true;
+    }
+  }
 }

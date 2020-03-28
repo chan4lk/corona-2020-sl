@@ -15,9 +15,21 @@
   <ion-refresher disabled="false" slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content> </ion-refresher-content>
   </ion-refresher>
-  <ng-container *ngFor="let country of countries$ | async">
+
+  <ng-container *ngFor="let country of visibleCountries">
     <app-country-info [info]="country"></app-country-info>
   </ng-container>
+  <ion-infinite-scroll
+    threshold="10%"
+    id="infinite-scroll"
+    (ionInfinite)="append($event)"
+  >
+    <ion-infinite-scroll-content
+      loading-spinner="bubbles"
+      loading-text="Loading more data..."
+    >
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
   <ion-list *ngIf="loading">
     <ion-list-header>
       <ion-label>
@@ -57,7 +69,11 @@
       </ion-label>
     </ion-item>
     <ion-item>
-      <ion-skeleton-text animated style="width: 27px; height: 27px" slot="start"></ion-skeleton-text>
+      <ion-skeleton-text
+        animated
+        style="width: 27px; height: 27px"
+        slot="start"
+      ></ion-skeleton-text>
       <ion-label>
         <h3>
           <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
