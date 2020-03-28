@@ -3,6 +3,11 @@
     <ion-title>
       {{'TAB3.HEADER' | translate }}
     </ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="openAbout()">
+        <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -16,35 +21,35 @@
     <ion-refresher-content> </ion-refresher-content>
   </ion-refresher>
   <ng-container *ngIf="info$ | async as info">
-  <ion-list>
-    <ion-item>
-      <ion-label>{{'COUNTRY.CASES' | translate}}</ion-label>
-      <ion-note slot="end" color="primary">{{info.cases}}</ion-note>
-    </ion-item>
-    <ion-item>
-      <ion-label>{{'COUNTRY.DEATHS' | translate}}</ion-label>
-      <ion-note slot="end" color="primary">{{info.deaths}}</ion-note>
-    </ion-item>
-    <ion-item>
-      <ion-label>{{'COUNTRY.TODAY_CASES' | translate}}</ion-label>
-      <ion-note slot="end" color="primary">{{info.todayCases}}</ion-note>
-    </ion-item>
-    <ion-item>
-      <ion-label>{{'COUNTRY.TODAY_DEATHS' | translate}}</ion-label>
-      <ion-note slot="end" color="primary">{{info.todayDeaths}}</ion-note>
-    </ion-item>
-    <ion-item>
-      <ion-label>{{'COUNTRY.CRITICAL' | translate}}</ion-label>
-      <ion-note slot="end" color="primary">{{info.critical}}</ion-note>
-    </ion-item>
-    <ion-item>
-      <ion-label>{{'COUNTRY.RECOVERED' | translate}}</ion-label>
-      <ion-note slot="end" color="primary">{{info.recovered}}</ion-note>
-    </ion-item>
-    <ion-item>
-      <ion-label>{{'COUNTRY.ACTIVE' | translate}}</ion-label>
-      <ion-note slot="end" color="primary">{{info.active}}</ion-note>
-    </ion-item>
-  </ion-list>
-</ng-container>
+    <ion-list>
+      <ion-item>
+        <ion-label>{{'COUNTRY.CASES' | translate}}</ion-label>
+        <ion-note slot="end" color="primary">{{info.cases}}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'COUNTRY.DEATHS' | translate}}</ion-label>
+        <ion-note slot="end" color="primary">{{info.deaths}}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'COUNTRY.TODAY_CASES' | translate}}</ion-label>
+        <ion-note slot="end" color="primary">{{info.todayCases}}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'COUNTRY.TODAY_DEATHS' | translate}}</ion-label>
+        <ion-note slot="end" color="primary">{{info.todayDeaths}}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'COUNTRY.CRITICAL' | translate}}</ion-label>
+        <ion-note slot="end" color="primary">{{info.critical}}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'COUNTRY.RECOVERED' | translate}}</ion-label>
+        <ion-note slot="end" color="primary">{{info.recovered}}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{'COUNTRY.ACTIVE' | translate}}</ion-label>
+        <ion-note slot="end" color="primary">{{info.active}}</ion-note>
+      </ion-item>
+    </ion-list>
+  </ng-container>
 </ion-content>

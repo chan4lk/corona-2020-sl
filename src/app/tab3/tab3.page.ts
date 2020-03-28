@@ -27,6 +27,10 @@ export class Tab3Page implements OnInit {
     this.doRefresh();
   }
 
+  openAbout() {
+    window.open('https://chan4lk.github.io', '_self');
+  }
+
   doRefresh(event?: any) {
     this.info$ = this.api.getAllCountries().pipe(
       map(counties => {
@@ -53,7 +57,7 @@ export class Tab3Page implements OnInit {
           } as CountryResponse;
         }, init);
       }),
-      finalize(() => event ? event.target.complete() : null)
+      finalize(() => (event ? event.target.complete() : null))
     );
   }
 }
