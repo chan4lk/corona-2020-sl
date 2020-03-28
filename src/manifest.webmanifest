@@ -1,6 +1,6 @@
 {
-  "name": "app",
-  "short_name": "app",
+  "name": "Corona 2020 SL",
+  "short_name": "corona_sl",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
