@@ -15,11 +15,13 @@ export class APIService {
     );
   }
 
-  getAllCountries(){
-    return this.http.get<CountryResponse[]>('https://corona.lmao.ninja/countries');
+  getAllCountries() {
+    return this.http.get<CountryResponse[]>(
+      'https://corona.lmao.ninja/countries?sort=deaths'
+    );
   }
 
-  getSummary(){
+  getSummary() {
     return this.http.get<SummaryResponse>('https://corona.lmao.ninja/all');
   }
 }
