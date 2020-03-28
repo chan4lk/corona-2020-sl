@@ -5,9 +5,10 @@ import { CountryInfoComponent } from '../country-info/country-info.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
+import { PieChartComponent } from '../pie-chart/pie-chart.component';
 
 @NgModule({
-  declarations: [CountryInfoComponent],
+  declarations: [CountryInfoComponent, PieChartComponent],
   imports: [
     CommonModule,
     TranslateModule.forChild(),
@@ -15,7 +16,7 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
     FormsModule,
     ExploreContainerComponentModule
   ],
-  exports: [TranslateModule, CountryInfoComponent],
+  exports: [TranslateModule, CountryInfoComponent, PieChartComponent],
   providers: []
 })
 export class SharedModule {}

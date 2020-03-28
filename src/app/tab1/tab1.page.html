@@ -18,4 +18,7 @@
   <ng-container *ngIf="info$ | async as country">
     <app-country-info [info]="country"></app-country-info>
   </ng-container>
+  <ng-container *ngIf="data$ | async as data">
+    <app-pie-chart [data]="data"></app-pie-chart>
+  </ng-container>
 </ion-content>
