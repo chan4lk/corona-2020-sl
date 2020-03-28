@@ -1,4 +1,9 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { CountryResponse } from '../core/model/country-info.response';
 
 @Component({
@@ -8,7 +13,6 @@ import { CountryResponse } from '../core/model/country-info.response';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CountryInfoComponent implements OnInit {
-
   @Input() info: CountryResponse = {
     active: 0,
     cases: 0,
@@ -18,10 +22,12 @@ export class CountryInfoComponent implements OnInit {
     deaths: 0,
     recovered: 0,
     todayCases: 0,
-    todayDeaths: 0
+    todayDeaths: 0,
+    countryInfo: {
+      flag: ''
+    }
   };
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {}
-
 }

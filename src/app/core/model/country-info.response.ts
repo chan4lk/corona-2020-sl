@@ -10,4 +10,7 @@ export interface CountryResponse {
   active: number;
   critical: number;
   casesPerOneMillion: number;
+  countryInfo?: {
+    flag: string;
+  };
 }
