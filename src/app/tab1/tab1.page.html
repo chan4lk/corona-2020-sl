@@ -19,6 +19,23 @@
     <app-country-info [info]="country"></app-country-info>
   </ng-container>
   <ng-container *ngIf="data$ | async as data">
+    <ion-label>
+      {{'TAB1.CHART1' | translate }}
+    </ion-label>
     <app-pie-chart [data]="data"></app-pie-chart>
+  </ng-container>
+
+  <ng-container *ngIf="cases$ | async as cases">
+    <ion-label>
+      {{'TAB1.CHART2' | translate }}
+    </ion-label>
+    <app-trend [data]="cases"></app-trend>
+  </ng-container>
+
+  <ng-container *ngIf="deaths$ | async as deaths">
+    <ion-label>
+      {{'TAB1.CHART3' | translate }}
+    </ion-label>
+    <app-trend [data]="deaths"></app-trend>
   </ng-container>
 </ion-content>

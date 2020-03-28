@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CountryResponse } from '../core/model/country-info.response';
 import { Observable } from 'rxjs';
 import { APIService } from '../core/api.service';
-import { tap, finalize, map } from 'rxjs/operators';
-import { TranslateService } from '@ngx-translate/core';
+import { finalize, map } from 'rxjs/operators';
+import { Timeline } from '../core/model/history.response';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -12,6 +12,9 @@ import { TranslateService } from '@ngx-translate/core';
 export class Tab1Page implements OnInit {
   info$: Observable<CountryResponse>;
   data$: Observable<{ x: any; y: number }[]>;
+  history$: Observable<Timeline>;
+  deaths$: Observable<{ x: string; y: number }[]>;
+  cases$: Observable<{ x: string; y: number }[]>;
   constructor(private api: APIService) {}
 
   ngOnInit(): void {
@@ -37,6 +40,28 @@ export class Tab1Page implements OnInit {
           y: this.getDeathInfo(info)
         }
       ])
+    );
+
+    this.history$ = this.api
+      .getHistory()
+      .pipe(map(history => history.timeline));
+
+    this.deaths$ = this.history$.pipe(
+      map(timeline =>
+        Object.keys(timeline.deaths).map(key => ({
+          x: key,
+          y: timeline.deaths[key]
+        }))
+      )
+    );
+
+    this.cases$ = this.history$.pipe(
+      map(timeline =>
+        Object.keys(timeline.cases).map(key => ({
+          x: key,
+          y: timeline.cases[key]
+        }))
+      )
     );
   }
 
