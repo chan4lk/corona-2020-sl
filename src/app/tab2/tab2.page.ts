@@ -14,6 +14,7 @@ export class Tab2Page implements OnInit, OnDestroy {
   loading = true;
   count = 0;
   sub: Subscription;
+  filter = '';
   constructor(private api: APIService) {}
 
   ngOnInit(): void {
@@ -41,11 +42,23 @@ export class Tab2Page implements OnInit, OnDestroy {
     });
   }
 
+  search(event: CustomEvent) {
+    this.filter = event.detail.value || '';
+    if (this.filter.length === 0) {
+      this.doRefresh();
+    } else {
+      this.count = 0;
+      this.visibleCountries = [];
+      this.append(null);
+    }
+  }
+
   append(event: any) {
-    const toAppend = this.countries.slice(
-      this.count * 10,
-      (this.count + 1) * 10
-    );
+    const toAppend = this.countries
+      .filter(c =>
+        c.country.toLowerCase().startsWith(this.filter.toLowerCase())
+      )
+      .slice(this.count * 10, (this.count + 1) * 10);
     if (event) {
       event.target.complete();
     }

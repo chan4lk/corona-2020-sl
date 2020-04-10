@@ -19,7 +19,7 @@ export class DetailsPage implements OnInit, OnDestroy {
   view: any[] = [700, 300];
 
   // options
-  legend = true;
+  legend = false;
   showLabels = true;
   animations = true;
   xAxis = true;
