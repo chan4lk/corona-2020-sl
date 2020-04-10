@@ -1,21 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      {{'TAB2.HEADER' | translate }}
-    </ion-title>
     <ion-searchbar
       (ionChange)="search($event)"
       showCancelButton="focus"
+      [placeholder]="'TAB2.SEARCH' | translate"
     ></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{'TAB2.HEADER' | translate }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
   <ion-refresher disabled="false" slot="fixed" (ionRefresh)="doRefresh($event)">
     <ion-refresher-content> </ion-refresher-content>
   </ion-refresher>
