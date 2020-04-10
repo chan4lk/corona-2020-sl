@@ -38,6 +38,16 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'details',
+        children: [
+          {
+            path: ':id',
+            loadChildren: () =>
+              import('../details/details.module').then(m => m.DetailsPageModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

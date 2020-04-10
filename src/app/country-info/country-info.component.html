@@ -2,7 +2,12 @@
   <ion-card-header>
     <ion-item>
       <ion-card-title>{{ info?.country | translate }}</ion-card-title>
-      <img class="flag" slot="end" [src]="info.countryInfo.flag" />
+      <img
+        (click)="gotoDetails()"
+        class="flag"
+        slot="end"
+        [src]="info.countryInfo.flag"
+      />
     </ion-item>
   </ion-card-header>
 

@@ -5,6 +5,7 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 import { CountryResponse } from '../core/model/country-info.response';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-country-info',
@@ -27,7 +28,11 @@ export class CountryInfoComponent implements OnInit {
       flag: ''
     }
   };
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+
+  gotoDetails() {
+    this.router.navigate([`/tabs/details/${this.info.country}`]);
+  }
 }
