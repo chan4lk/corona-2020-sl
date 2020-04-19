@@ -16,7 +16,8 @@
     "DATE": "දිනය",
     "COUNT": "ප්‍රමාණය",
     "CASES": "මුළු ආසාදිතයින්",
-    "DEATHS": "මරණ"
+    "DEATHS": "මරණ",
+    "RECOVERED": "සුව වුවන්"
   },
   "COUNTRY": {
     "SUBTITLE": "රට",
