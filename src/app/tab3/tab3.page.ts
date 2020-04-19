@@ -7,7 +7,7 @@ import { finalize, map } from 'rxjs/operators';
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
-  styleUrls: ['tab3.page.scss']
+  styleUrls: ['tab3.page.scss'],
 })
 export class Tab3Page implements OnInit {
   info$: Observable<CountryResponse> = of({
@@ -19,7 +19,8 @@ export class Tab3Page implements OnInit {
     deaths: 0,
     recovered: 0,
     todayCases: 0,
-    todayDeaths: 0
+    todayDeaths: 0,
+    tests: 0,
   });
   constructor(private api: APIService) {}
 
@@ -33,7 +34,7 @@ export class Tab3Page implements OnInit {
 
   doRefresh(event?: any) {
     this.info$ = this.api.getAllCountries().pipe(
-      map(counties => {
+      map((counties) => {
         const init: CountryResponse = {
           active: 0,
           cases: 0,
@@ -43,7 +44,8 @@ export class Tab3Page implements OnInit {
           deaths: 0,
           recovered: 0,
           todayCases: 0,
-          todayDeaths: 0
+          todayDeaths: 0,
+          tests: 0,
         };
         return counties.reduce((previous, current) => {
           return {
@@ -53,7 +55,8 @@ export class Tab3Page implements OnInit {
             todayCases: previous.todayCases + current.todayCases,
             deaths: previous.deaths + current.deaths,
             recovered: previous.recovered + current.recovered,
-            critical: previous.critical + current.critical
+            critical: previous.critical + current.critical,
+            tests: previous.tests + current.tests,
           } as CountryResponse;
         }, init);
       }),

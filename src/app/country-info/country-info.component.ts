@@ -2,7 +2,7 @@ import {
   Component,
   OnInit,
   Input,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { CountryResponse } from '../core/model/country-info.response';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   selector: 'app-country-info',
   templateUrl: './country-info.component.html',
   styleUrls: ['./country-info.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CountryInfoComponent implements OnInit {
   @Input() info: CountryResponse = {
@@ -24,9 +24,10 @@ export class CountryInfoComponent implements OnInit {
     recovered: 0,
     todayCases: 0,
     todayDeaths: 0,
+    tests: 0,
     countryInfo: {
-      flag: ''
-    }
+      flag: '',
+    },
   };
   constructor(private router: Router) {}
 
