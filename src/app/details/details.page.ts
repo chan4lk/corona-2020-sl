@@ -10,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-details',
   templateUrl: './details.page.html',
-  styleUrls: ['./details.page.scss']
+  styleUrls: ['./details.page.scss'],
 })
 export class DetailsPage implements OnInit, OnDestroy {
   params: Params;
@@ -31,7 +31,7 @@ export class DetailsPage implements OnInit, OnDestroy {
   timeline = true;
 
   colorScheme = {
-    domain: ['#5AA454', '#E44D25', '#CFC0BB', '#7aa3e5', '#a8385d', '#aae3f5']
+    domain: ['#E44D25', '#CFC0BB', '#5AA454', '#7aa3e5', '#a8385d', '#aae3f5'],
   };
   history$: Observable<Timeline>;
   deaths$: Observable<{ name: string; value: number }[]>;
@@ -56,22 +56,29 @@ export class DetailsPage implements OnInit, OnDestroy {
     this.api
       .getHistory(this.country)
       .pipe(takeUntil(this.destroy$))
-      .subscribe(data => {
+      .subscribe((data) => {
         this.multi = [
           {
             name: this.translate.instant('DETAILS.DEATHS'),
-            series: Object.keys(data.timeline.deaths).map(name => ({
+            series: Object.keys(data.timeline.deaths).map((name) => ({
               name,
-              value: data.timeline.deaths[name]
-            }))
+              value: data.timeline.deaths[name],
+            })),
           },
           {
             name: this.translate.instant('DETAILS.CASES'),
-            series: Object.keys(data.timeline.cases).map(name => ({
+            series: Object.keys(data.timeline.cases).map((name) => ({
               name,
-              value: data.timeline.cases[name]
-            }))
-          }
+              value: data.timeline.cases[name],
+            })),
+          },
+          {
+            name: this.translate.instant('DETAILS.RECOVERED'),
+            series: Object.keys(data.timeline.recovered).map((name) => ({
+              name,
+              value: data.timeline.recovered[name],
+            })),
+          },
         ];
       });
   }

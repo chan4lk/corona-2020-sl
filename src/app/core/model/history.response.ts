@@ -8,4 +8,5 @@ export interface HistoryResponse {
 export interface Timeline {
   cases: { [key: string]: number };
   deaths: { [key: string]: number };
+  recovered: { [key: string]: number };
 }
